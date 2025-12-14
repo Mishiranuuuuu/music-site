@@ -128,6 +128,89 @@ h1 {
     transform: scale(1.03);
 }
 
+#effect-ripples:hover {
+    border-color: rgb(255, 192, 251, 0.5);
+    background: rgba(255, 192, 251, 0.2);
+}
+
+.star-particle-ripples {
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 100, 209));
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp-ripples 1.5s ease-out forwards;
+}
+
+#effect-nameless:hover {
+    border-color: rgb(245, 255, 108, 0.5);
+    background: rgba(245, 255, 108, 0.2);
+}
+
+@keyframes floatUp-ripples {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(2) rotate(0deg);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(0) rotate(45deg);
+    }
+}
+
+#effect-lullaby:hover {
+    border-color: rgb(0, 153, 255, 0.5);
+    background: rgba(0, 153, 255, 0.2);
+}
+
+.snow-lullaby {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,255,225,1) 0%, rgba(125, 255, 255, 0.8) 50%, transparent 25%);
+    z-index: 1;
+    animation: floatDown-lullaby 1.5s ease-out forwards;
+}
+
+#effect-lullaby::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    background:
+            radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.1), transparent 20%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+#effect-lullaby:hover::before {
+    opacity: 1;
+}
+
+@keyframes floatDown-lullaby {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.75);
+    }
+
+    20% {
+        opacity: 0.85;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(120px) scale(0);
+    }
+}
+
 .song-info h3 {
     margin: 0 0 8px 0;
     font-size: 1.5rem;
