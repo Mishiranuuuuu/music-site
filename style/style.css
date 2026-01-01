@@ -3,7 +3,6 @@
     --text-secondary: #ccc;
     --accent: #1db954;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
     /*--glass-bg: rgba(40, 40, 40, 0.4); */
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-blur: 12px;
@@ -104,6 +103,7 @@ h1 {
     text-align: center;
     transition: var(--transition);
     position: relative;
+    overflow: hidden;
 }
 
 .song-card:hover {
@@ -139,15 +139,10 @@ h1 {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     pointer-events: none;
     z-index: 1;
-    animation: floatUp-ripples 1.5s ease-out forwards;
+    animation: ani-ripples 1s ease-out forwards;
 }
 
-#effect-nameless:hover {
-    border-color: rgb(245, 255, 108, 0.5);
-    background: rgba(245, 255, 108, 0.2);
-}
-
-@keyframes floatUp-ripples {
+@keyframes ani-ripples {
     0% {
         opacity: 0;
         transform: translateY(0) scale(2) rotate(0deg);
@@ -163,6 +158,34 @@ h1 {
     }
 }
 
+#effect-nameless:hover {
+    border-color: rgb(245, 255, 108, 0.5);
+    background: rgba(245, 255, 108, 0.2);
+}
+
+.star-particle-nameless {
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(255, 255, 133), rgb(255, 255, 113));
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    pointer-events: none;
+    z-index: 1;
+    animation: ani-nameless 1.5s ease-out forwards;
+}
+
+@keyframes ani-nameless {
+    0% {
+        opacity: 0;
+        transform: scale(1.5) rotate(0);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(45deg);
+    }
+}
+
 #effect-lullaby:hover {
     border-color: rgb(0, 153, 255, 0.5);
     background: rgba(0, 153, 255, 0.2);
@@ -172,7 +195,7 @@ h1 {
     position: absolute;
     background: radial-gradient(circle, rgba(255,255,225,1) 0%, rgba(125, 255, 255, 0.8) 50%, transparent 25%);
     z-index: 1;
-    animation: floatDown-lullaby 1.5s ease-out forwards;
+    animation: ani-lullaby 1.5s ease-out forwards;
 }
 
 #effect-lullaby::before {
@@ -195,7 +218,7 @@ h1 {
     opacity: 1;
 }
 
-@keyframes floatDown-lullaby {
+@keyframes ani-lullaby {
     0% {
         opacity: 0;
         transform: translateY(0) scale(0.75);
